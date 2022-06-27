@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MARKS SHEET USING HTML TABLES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="html, css, html tables, table">
+    <meta name="Description" content="html table">
+    <!-- add icon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link rel="stylesheet" href="css/marks.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:600,700,900" rel="stylesheet">
+
+            
+
+  </head>
+  <body>
+    <div class="container">
+      <h2>Add Marks</h2>
+
+      <form action="marks.php" method="get">
+      <table>
+
+          <tr>
+            <td>Roll No.</td>
+            <td><input type="number" name="roll"></td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              
+              <td><input type="text" name="name" value="" placeholder="First Name"></td>
+              <td><input type="text" name="middelname" value="" placeholder="Middel Name"></td>
+              <td><input type="text" name="lname" value="" placeholder="Last Name"></td>
+
+            </tr>
+            <tr>
+              <td>Sem-I</td>
+              <td><input type="number" name="s1" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s11" step="any" placeholder="H/W or S/W subject"></td>
+            </tr>
+            <tr>
+              <td>Sem-II</td>
+              <td><input type="number" name="s2" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s22" step="any" placeholder="H/W or S/W subject"></td>
+            </tr>
+            <tr>
+              <td>Sem-III</td>
+              <td><input type="number" name="s3" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s33" step="any" placeholder="H/W or S/W subject"v></td>
+            </tr>
+            <tr>
+              <td>Sem-IV</td>
+              <td><input type="number" name="s4" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s44" step="any" placeholder="H/W or S/W subject"></td>
+            </tr>
+          <tr>
+            <td>Sem-V</td>
+            <td><input type="number" name="s5" step="any" placeholder="programming Subject"></td>
+              <td><input type="number" name="s55" step="any" placeholder="H/W or S/W subject"></td>
+          </tr>
+            <tr>
+              <td>Sem-VI</td>
+              <td><input type="number" name="s6" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s66" step="any" placeholder="H/W or S/W subject"></td>
+            </tr>
+            <tr>
+              <td>Sem-VII</td>
+              <td><input type="number" name="s7" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s77" step="any" placeholder="H/W or S/W subject"></td>
+            </tr>
+
+
+          <tr>
+              <td>Sem-VIII</td>
+              <td><input type="number" name="s8" step="any" placeholder="programming Subject"></td>
+                <td><input type="number" name="s88" step="any" placeholder="H/W or S/W subject"></td>
+          </tr>
+
+
+
+
+      </table>
+
+      <div class="fluid-container">
+      <button type="submit" id="button" class="btn btn-primary deep-purple btn-block" onclick="fun()">Submit</button>
+<br>
+  </form>
+      </div>
+    </div>
+
+  </body>
+</html>

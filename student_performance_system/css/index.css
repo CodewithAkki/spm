@@ -1,0 +1,87 @@
+body{
+  font-family: "Montserrat";
+    text-align: center;
+}
+h1,h2,h3{
+  font-family: "Montserrat-bold";
+}
+
+p{
+  color: white;
+  font-weight: bold;
+}
+.container-fluid{
+  padding: 0% 0%;
+}
+/*section*/
+.colord-section{
+  /* background-color: #a3a375; */
+  background: linear-gradient(to bottom, #91848c 0%, #ccccff 100%);
+}
+.white-section{
+  background-color: #fff;
+}
+#title{
+  color: #fff;
+  text-align: left;
+}
+#title .container-fluid{
+  padding: 3% 15% 1%;
+
+}
+.Download-button{
+  margin: 5% 3% 5% 0;
+}
+.title-image{
+  width: 279px;
+  transform: rotate(25deg);
+  position: absolute;
+/*  right:30%;*/
+}
+.big-heading{
+  font-family: 'Montserrat-black', sans-serif;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+/*navbar*/
+.navbar-collapse{
+  padding-left: 25%;
+}
+.navbar{
+  padding:0 0 4.5rem 0;
+}
+.navbar-brand{
+  font-family: "Ubuntu";
+  font-size:2.5rem;
+  font-weight: bold;
+}
+.nav-link{
+  font-size: 1.2rem;
+  font-family: "Montserrat-light";
+}
+.d-block{
+  height: 70vh;
+}
+.carousel-item{
+  height: 70vh;
+  min-height: 300px;
+}
+.carousel-caption{
+  bottom: 20px;
+}
+.carousel-caption h5{
+  font-size: 20px;
+  /* text-transform: uppercase; */
+  /* letter-spacing: 2px; */
+  margin-top: 25px;
+  font-weight: 900;
+}
+.carousel-caption p{
+  font-size: 50px;
+  margin: auto;
+  width: 100%;
+  line-height: 1.9;
+  color: black;
+  font-weight: bold;
+}
