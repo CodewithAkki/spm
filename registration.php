@@ -53,7 +53,7 @@ input[type=submit], input[type=reset]{
     <div class="header" id="topheader">
     <center><h2>Student Registration Form </h3></center>
     <table align="center" cellpadding = "10">
-      <form action="" method="post">
+      <form action="" method="post" enctype="multipart/form-data">
     <!--------------------- First Name ------------------------------------------>
     <tr>
     <td>First Name</td>
@@ -160,6 +160,29 @@ input[type=submit], input[type=reset]{
     Post Graduation(Masters)<br/>
 </td>
 </tr>
+<tr>
+    <td>department<br /><br /><br /></td>
+
+    <td>
+    <select name="department" id="department">
+  <option value="computer_science">computer science</option>
+  <option value="mechanical">mechanical</option>
+  <option value="chemical_engineer">chemical engineer</option>
+  <option value="civil_engineering">civil engineering</option>
+</select>
+</td>
+</tr>
+
+
+<tr>
+    <td>Profile<br /><br /><br /></td>
+    <td><input type="file" name="profile" value="Post Graduation"  />
+</td>
+</tr>
+
+
+
+
 
 <!----------------------- Submit and Reset ------------------------------->
 <tr>
@@ -177,6 +200,9 @@ input[type=submit], input[type=reset]{
 </html>        
 
 <?php
+
+
+
 if(isset($_POST['submit'])){
 //Database connection
 $servername="localhost";
@@ -187,6 +213,16 @@ $conn=new mysqli($servername,$username,$pass,$table);
 if(!$conn){
     die('connection faild:'.mysqli_connect_error());
 }else{
+$file=$_FILES['profile'];
+$filename=$file['name'];
+$filepath=$file['tmp_name'];
+$fileerror=$file['error'];
+if($fileerror==0){
+  $destinationfile = 'uploadedimages/'.$filename;
+  move_uploaded_file($filepath,$destinationfile);
+}
+
+  $Department=$_POST['department'];
   $FirstName=$_POST['FirstName'];
   $LastName=$_POST['LastName'];
   $Email=$_POST['EmailID'];
@@ -323,13 +359,16 @@ if(!$conn){
       alert("intervalid Hobby")
     </script>
     <?php
+    echo"$destinationfile";
   }
 
   else{
 
-    $stmt ="INSERT INTO registration(Fname,Lname,bdate,mail,pass,phone,
+
+   
+    $stmt ="INSERT INTO registration(img,department,Fname,Lname,bdate,mail,pass,phone,
     gender1,addr,city1,pin,state1,country1,hobby1,SSC,HSC,Graduation,POSTGraduation)
-    values('$FirstName','$LastName','$birthday','$Email',
+    values('$destinationfile','$Department','$FirstName','$LastName','$birthday','$Email',
     '$password','$MobileNumber','$Gender','$Address','$City','$Pin_Code','$State','$country','$Hobby','$item[0]','$item[1]','$item[2]','$item[3]')";
      $result = mysqli_query($conn, $stmt);
      echo $result. mysqli_error($conn);
@@ -339,7 +378,7 @@ if(!$conn){
       alert("Data is inserted")
     </script>
       <?php
-      header("location:login.php");
+echo "<script>window.location.href='login.php'</script>";
      }else{
       ?>
       <script>

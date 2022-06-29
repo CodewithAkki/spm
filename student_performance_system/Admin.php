@@ -19,6 +19,7 @@ if(strlen($email)>0 && strlen($pswd)>0){
 if($result = mysqli_query($conn, $sql)){
   if(mysqli_num_rows($result) == 1){
     header("Location: //localhost/student_performance_system/adminview.html");
+    exit();
   }
   if(mysqli_num_rows($result) == 2){
     echo "<script>alert('duplicate records');</script>";

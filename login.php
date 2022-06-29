@@ -140,6 +140,7 @@ button{
 
 
 <?php
+session_start();
 
 if(isset($_POST['submit'])){
 
@@ -154,7 +155,10 @@ $conn=new mysqli($servername,$username,$pass,$table);
 if(!$conn){
     die('connection failed:'.mysqli_connect_error());
 }else{
-    $sql="SELECT mail,pass FROM registration WHERE mail=?";
+    
+
+
+    $sql="SELECT * FROM registration WHERE mail=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s",$Email);
     $bool=$stmt->execute();
@@ -163,19 +167,28 @@ if(!$conn){
     while($row=$stmt_result->fetch_assoc())
     {
         if($password==$row['pass']){
-            header("location:studentview.php");
-        }else{
-            ?>
-            <script>
-                alert("Password is wrong");
-                </script>
-            <?php
-
+            echo "success";
+            echo $row['department'];
+            $_SESSION['department']=$row['department'];
+            $_SESSION['rollno']=$row['Id'];
+            $_SESSION['firstname']=$row['Fname'];
+            $_SESSION['image']=$row['img'];
+            //$_SESSION['department'] =$email;
+            echo $row['department'];
+            echo $row['Id'];
+            header("location:dashboard.php");
         }
-            
-             //
-
     }
+
+                    
+    ?>
+    <script>
+        alert("Password is wrong");
+        </script>
+    <?php
+
+    
+
 
 }
 

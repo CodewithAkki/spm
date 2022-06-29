@@ -1,6 +1,7 @@
 <html>
 <head>
-<title><b>Student Registration Fom</title>
+    <link rel="icon" href="./images/education-icon.svg"  type="image/svg ">
+    <title>Student Registration Fom</title>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -17,29 +18,27 @@
     margin: 0;
     font-family: sans-serif;
 }
-body{
 
-    background: url("../images/un.jpg") no-repeat;
-    background-size: cover;
-}
 .login-form{
-    width: 350px;
+    width: 500px;
     top: 50%;
+    height: 600px;
     left: 50%;
     transform: translate(-50% ,-50%);
     position: absolute;
-    color: #fff;
+    color: rgb(255, 255, 255);
+    background-color: rgb(167, 228, 240);
 }
 
 .login-form h1{
     font-size: 40px;
-    color: brown;
+    color: #3b9be9b1;
     text-align: center;
     text-transform: uppercase;
     margin: 40px 0;
 }
 .login-form p{
-    color: brown;
+    color: #3b9be9b1;
     font-size: 20px;
     margin: 15px 0;
 }
@@ -74,25 +73,55 @@ body{
     text-align: center;
 
 }
+button :hover{
+    color: #50d1c0;
+    background: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0,3);
+}
 .login-form a:hover{
     color: #50d1c0;
     background: #fff;
     text-decoration: none;
     box-shadow: 0 0 20px 0 rgba(0,0,0,0,3);
 }
+
+button{
+    border: 1px solid #fff;
+    border-radius: 100px;
+    margin: 0 5px;
+    background-color: transparent;
+    padding: 12px 35px;
+    outline: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: center;
+}
+
 </style>
 
 <body>
   <div class="login-form" >
-    <cnter><h1> <b>Login Form</b></h1></cnter>
-    <form action="#" method="post">
-        <p><b>Email ID<b></p>
-        <input type="text" name="email" placeholder="Enter email">
-        <br><p><b>Password</b></p>
-        <input type="password" name="pass" placeholder="Enter password"><br><br><br>
-        <a href="#">Submit</a>
+    <cnter><h1> <b>Student Perfromance Management <br>Admin Login</b></h1></cnter>
+    <form action=" " method="post">
         
-         
+        
+        <input type="email" name="email" placeholder="Enter email" style="width: 70%;margin-left: 20%;">
+        </center>
+        
+        <br>
+        <br>
+
+        <input type="password" class="pass" name="pass" placeholder="Enter password" style="width: 70%;margin-left: 20%;"><br><br><br>
+        </center>
+        <center>
+        <button type="submit" name="submit">login</button>
+    <a href="registration.php">Registration</a>
+   
+         </center>
+
     </form>
   </div>
 
@@ -101,3 +130,46 @@ body{
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     </body>
+</html>
+
+
+<?php
+
+if(isset($_POST['submit'])){
+
+$Email=$_POST['email'];
+$password=$_POST['pass'];
+$servername="localhost";
+$username="root";
+$pass="";
+$table="student_performance";
+$conn=new mysqli($servername,$username,$pass,$table);
+
+if(!$conn){
+    die('connection failed:'.mysqli_connect_error());
+}else{
+    
+    $sql="SELECT Email,Password FROM admin WHERE Email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s",$Email);
+    $bool=$stmt->execute();
+    $stmt_result=$stmt->get_result();
+    
+    while($row=$stmt_result->fetch_assoc())
+    {
+        if($password==$row['Password']){
+            header("location:admindashboard.html");
+            exit();
+        }
+
+    }
+    ?>
+    <script>
+        alert("Password is wrong");
+        </script>
+    <?php
+
+}
+
+}
+?>

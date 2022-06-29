@@ -5,9 +5,10 @@ body{
 }
 
  .container{
+  position:absolute;
   width: 720px;
-  height: 740px;
-  margin: 0 auto;
+  height: 600px;
+  margin-top:-60px ;
   padding-left: 32px;
   padding-right: 32px;
   padding-top: 40px;
@@ -17,7 +18,7 @@ body{
   font-family: Lato;
 }
 .fluid-container{
-  width:200px;
+  width:150px;
   align-items: center;
   text-align: center;
    margin: 0 auto;
